@@ -49,7 +49,7 @@ select{padding:8px;border-radius:10px;font-size:15px;width:100%}a{color:var(--g2
 <div class="card"><h3>Find me</h3><select id="pick"><option value="">Pick your name…</option></select><div id="me" style="margin-top:8px"></div></div>
 <div class="card"><h3>Teams <span class="mut">(GHIN as of 10/13/26)</span></h3><table id="teams"></table></div>
 <div class="card"><h3>Room pairs <span class="mut">(per resort confirmation R16F0E)</span></h3><table id="rooms"></table></div>
-<div class="card"><h3>Arrivals & carpools</h3><table id="arr"></table><p class="mut">Most arrivals are via CLT on Wednesday. If yours is missing, send it to Joe.</p></div></section>
+</section>
 
 <section id="format" data-t="Format & Bets"><h2>Format & Bets</h2>
 <div class="card"><h3>Ryder Cup: Team US 🇺🇸 vs Team EU 🇪🇺</h3><ul>
@@ -66,7 +66,7 @@ select{padding:8px;border-radius:10px;font-size:15px;width:100%}a{color:var(--g2
 <section id="hotel" data-t="Hotel & Costs"><h2>Hotel & Costs</h2>
 <div class="card"><h3>The Manor, Pinehurst Resort</h3><ul><li>Check-in location: 5 Community Road, Pinehurst, NC 28374</li><li>Resort: 80 Carolina Vista, Pinehurst, NC 28374</li>
 <li>Check-in Thu 10/22, 4:00 PM · Checkout Sun 10/25, 11:00 AM</li><li>Group confirmation: <b>R16F0E</b> (each player has their own number)</li>
-<li>Reservations: <a href="tel:8552358507">855-235-8507</a> · RDU shuttle: <a href="tel:9102358465">910-235-8465</a></li></ul></div>
+<li>Reservations: <a href="tel:8552358507">855-235-8507</a></li></ul></div>
 <div class="card"><h3>Package: MAP / Donald Ross</h3><ul><li>Manor Room, 3 nights (shared, 2 per room)</li><li>Breakfast and dinner daily</li><li>1 round of golf per day with cart</li><li>Practice facilities and club storage</li></ul></div>
 <div class="card"><h3>Your cost (per person)</h3><table><tr><td>Package</td><td>$2,760.00</td></tr><tr><td>Tax (est., can change)</td><td>$170.25</td></tr><tr><td>Resort fee</td><td>$276.00</td></tr><tr><th>Total</th><th>$3,206.25</th></tr><tr><td>Deposit paid (applied at check-in)</td><td>−$300</td></tr><tr><th>Est. balance</th><th>≈$2,906</th></tr></table>
 <p class="mut">Plus pro shop premiums: <b>No. 2 +$250</b> (Thu No. 2 group only) and <b>No. 10 +$125</b> (everyone, Sat). Caddie fees and tips, bar tabs and the $250 bet pot are extra.</p></div></section>
@@ -77,32 +77,31 @@ select{padding:8px;border-radius:10px;font-size:15px;width:100%}a{color:var(--g2
 <div class="card"><div id="chat"></div><div class="chips" id="chips"></div><form class="ask" id="af"><input id="q" placeholder="e.g. What time do I tee off Saturday?" autocomplete="off"><button>Ask</button></form></div></section>
 </main>
 <script>
-const P=[ // name, short, team, ghin, flight, roommate, arrival, carpool
-["Joe Kontak","Joe","US",0.7,"A","Mike Kontak (Sr)","Local (N/A)","Driving from Joe's: Joe, Boerger, Bokeno, Jim"],
-["Mike Kontak (Sr)","Papa K","US",3.9,"A","Joe Kontak","N/A","With Mikie (Dad)"],
-["Mikie Kontak","Mikie","US",4.9,"B","Will Fidler","CLT Wed 10/21 7:01pm, departs Mon 10/26 7:08pm","With Dad"],
-["Will Fidler","Will","EU",14,"C","Mikie Kontak","Arrives Friday","Own"],
-["Alex Bokeno","Bokeno","EU",5.5,"A","Zach Boerger","CLT Wed 10/21 7:50am, departs Sun 10/25 8:15pm","Joe's carpool (has rental van)"],
-["Zach Boerger","Zach","EU",15.4,"D","Alex Bokeno","CLT Wed 10/21 12:30pm, departs Sun 10/25 8:15pm","Joe's carpool"],
-["Alex Helin","Helin","EU",13,"C","Danny Helin","Staying at Dr. Daniel's Wed","With Danny"],
-["Danny Helin","Danny","EU",1.1,"A","Alex Helin","Charlotte local","Driving"],
-["Matt Kilianski","Kili","EU",8.5,"B","Cam Weimer","CLT Wed 10/21 1:23pm, departs Sun 10/25 6:57pm","TBD"],
-["Cam Weimer","Cam","US",16,"D","Matt Kilianski","CLT Wed 10/21 1:23pm, departs Sun 10/25 6:57pm","TBD"],
-["Ryan Underwood","Underwood","US",8.7,"B","Jim Piascik","Not posted","TBD"],
-["Jim Piascik","Jim","US",16.5,"D","Ryan Underwood","CLT Wed 10/21 9:05pm, departs Sun 10/25 7:50pm","Joe's carpool"],
-["Anderson Bales","Anderson","US",8.8,"C","Greg Cunningham","Charlotte local","TBD"],
-["Greg Cunningham","Greg","EU",26.8,"D","Anderson Bales","Not posted","TBD"],
-["Ryan Bender","Bender","EU",12,"B","Evan Slavik","Not posted","TBD"],
-["Evan Slavik","Slav","US",10.5,"C","Ryan Bender","Not posted","TBD"]];
+const P=[ // name, short, team, ghin, flight, roommate
+["Joe Kontak","Joe","US",0.7,"A","Mike Kontak (Sr)"],
+["Mike Kontak (Sr)","Papa K","US",3.9,"A","Joe Kontak"],
+["Mikie Kontak","Mikie","US",4.9,"B","Will Fidler"],
+["Will Fidler","Will","EU",14,"C","Mikie Kontak"],
+["Alex Bokeno","Bokeno","EU",5.5,"A","Zach Boerger"],
+["Zach Boerger","Zach","EU",15.4,"D","Alex Bokeno"],
+["Alex Helin","Helin","EU",13,"C","Danny Helin"],
+["Danny Helin","Danny","EU",1.1,"A","Alex Helin"],
+["Matt Kilianski","Kili","EU",8.5,"B","Cam Weimer"],
+["Cam Weimer","Cam","US",16,"D","Matt Kilianski"],
+["Ryan Underwood","Underwood","US",8.7,"B","Jim Piascik"],
+["Jim Piascik","Jim","US",16.5,"D","Ryan Underwood"],
+["Anderson Bales","Anderson","US",8.8,"C","Greg Cunningham"],
+["Greg Cunningham","Greg","EU",26.8,"D","Anderson Bales"],
+["Ryan Bender","Bender","EU",12,"B","Evan Slavik"],
+["Evan Slavik","Slav","US",10.5,"C","Ryan Bender"]];
 const CR={"4:00 PM":"Zach, Helin, Bokeno, Kili","4:10 PM":"Papa K, Slav, Danny, Joe","4:20 PM":"Cam, Anderson, Mikie, Jim","4:30 PM":"Underwood, Greg, Bender"};
 const F4=[["8:20","Bokeno + Bender","Underwood + Weimer"],["8:30","D. Helin + Fidler","Kontak Sr + Slavik"],["8:40","Cunningham + Kilianski","Piascik + Bales"],["8:50","Boerger + A. Helin","Joe + Mikie"]];
 const F3=[["2:00","Kilianski + Bender","Joe + Slavik"],["2:08","D. Helin + A. Helin","Kontak Sr + Underwood"],["2:16","Fidler + Cunningham","Piascik + Weimer"],["2:24","Boerger + Bokeno","Bales + Mikie"]];
 const S=[
-{d:"Wed 10/21",t:"Travel day",items:[["Evening","Arrive CLT / Charlotte. Wednesday lodging is on you (some are at Joe's)."]]},
-{d:"Thu 10/22",t:"Arrival + The Cradle",date:"2026-10-22",items:[["10:00 AM","Pinehurst No. 2 (optional, with caddies, +$250): Bender, Bokeno, Kili, Cam"],["Before 4 PM","Give $250 cash to Boerger/Bokeno. Thistle Dhu putt-offs."],["4:00 PM","Check-in opens at The Manor"],["4:00–4:30 PM","The Cradle (skins, $20). Groups 4:00 / 4:10 / 4:20 / 4:30"],["7:00 PM","Dinner: Carolina Vista Lounge"]]},
-{d:"Fri 10/23",t:"Ryder Cup Day 1",date:"2026-10-23",items:[["Breakfast","Manor Market"],["8:20–8:50 AM","No. 4: Four-Ball / Best Ball (White tees, $40)"],["2:00–2:24 PM","No. 3: Modified Alternate Shot (White tees, $40)"],["8:30 PM","Dinner: The Deuce @ No. 2. Singles draw afterward."],["","Will Fidler arrives"]]},
+{d:"Thu 10/22",t:"Check-in + The Cradle",date:"2026-10-22",items:[["10:00 AM","Pinehurst No. 2 (optional, with caddies, +$250): Bender, Bokeno, Kili, Cam"],["Before 4 PM","Give $250 cash to Boerger/Bokeno. Thistle Dhu putt-offs."],["4:00 PM","Check-in opens at The Manor"],["4:00–4:30 PM","The Cradle (skins, $20). Groups 4:00 / 4:10 / 4:20 / 4:30"],["7:00 PM","Dinner: Carolina Vista Lounge"]]},
+{d:"Fri 10/23",t:"Ryder Cup Day 1",date:"2026-10-23",items:[["Breakfast","Manor Market"],["8:20–8:50 AM","No. 4: Four-Ball / Best Ball (White tees, $40)"],["2:00–2:24 PM","No. 3: Modified Alternate Shot (White tees, $40)"],["8:30 PM","Dinner: The Deuce @ No. 2. Singles draw afterward."],["Morning","Will Fidler joins and plays the full Ryder Cup schedule from No. 4 on"]]},
 {d:"Sat 10/24",t:"Ryder Cup Singles",date:"2026-10-24",items:[["6–9:30 AM","Breakfast: Station 21 @ No. 10"],["10:24–11:00 AM","No. 10: Singles + CTPs (White tees, caddies, +$125, $60)"],["7:30 PM","Dinner: The Homestead (reservation under Zach). Sheet also lists Pinehurst Brewery."]]},
-{d:"Sun 10/25",t:"Chicago + Departure",date:"2026-10-25",items:[["Breakfast","Manor Market (check out by 11 AM; plan bags before golf)"],["8:56–9:20 AM","No. 1: Chicago Points + CTPs/skins (Blue tees, $60)"],["11:00 AM","Checkout. Flights home from CLT are about 6:57–8:15 PM."]]}];
+{d:"Sun 10/25",t:"Chicago + Checkout",date:"2026-10-25",items:[["Breakfast","Manor Market (check out by 11 AM; plan bags before golf)"],["8:56–9:20 AM","No. 1: Chicago Points + CTPs/skins (Blue tees, $60)"],["11:00 AM","Checkout"]]}];
 const tees={"2026-10-22T16:00":"The Cradle","2026-10-23T08:20":"No. 4 Best Ball","2026-10-23T14:00":"No. 3 Alt Shot","2026-10-24T10:24":"No. 10 Singles","2026-10-25T08:56":"No. 1 Chicago"};
 const $=s=>document.querySelector(s);
 // nav
@@ -117,33 +116,32 @@ tick();setInterval(tick,30000);
 // schedule
 const tb=(r,h)=>`<table><tr><th>Time</th><th><span class="tag eu">EU</span></th><th><span class="tag us">US</span></th></tr>${r.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>${x[2]}</td></tr>`).join('')}</table>`;
 $('#schedx').innerHTML=S.map(s=>`<div class="card"><div class="day">${s.d}</div><h3>${s.t}</h3><table>${s.items.map(i=>`<tr><td style="width:34%;white-space:nowrap"><b>${i[0]}</b></td><td>${i[1]}</td></tr>`).join('')}</table>
-${s.d.startsWith('Thu')?'<p class="mut" style="margin-top:8px"><b>Cradle groups:</b><br>'+Object.entries(CR).map(([k,v])=>k+': '+v).join('<br>')+'</p>':''}
+${s.d.startsWith('Thu')?'<p class="mut" style="margin-top:8px"><b>Cradle groups:</b><br>'+Object.entries(CR).map(([k,v])=>k+': '+v).join('<br>')+'<br>Will joins Friday morning, so he isn\'t in a Cradle group.</p>':''}
 ${s.d.startsWith('Fri')?'<h3 style="margin-top:10px">No. 4 Four-Ball</h3>'+tb(F4)+'<h3 style="margin-top:10px">No. 3 Mod. Alt Shot</h3>'+tb(F3):''}
 ${s.d.startsWith('Sat')?'<p class="mut">8 singles matches: 2 per tee time at 10:24, 10:36, 10:48 and 11:00. Pairings drawn Friday night.</p>':''}</div>`).join('');
 // players
 $('#teams').innerHTML='<tr><th><span class="tag eu">EU</span></th><th>HCP</th><th><span class="tag us">US</span></th><th>HCP</th></tr>'+(()=>{const e=P.filter(p=>p[2]=='EU').sort((a,b)=>a[3]-b[3]),u=P.filter(p=>p[2]=='US').sort((a,b)=>a[3]-b[3]);return e.map((p,i)=>`<tr><td>${p[1]} <span class="mut">${p[4]}</span></td><td>${p[3]}</td><td>${u[i][1]} <span class="mut">${u[i][4]}</span></td><td>${u[i][3]}</td></tr>`).join('')})();
 const seen=new Set();$('#rooms').innerHTML=P.filter(p=>{if(seen.has(p[5]))return false;seen.add(p[0]);return true}).map((p,i)=>`<tr><td>${i+1}</td><td>${p[0]} & ${p[5]}</td></tr>`).join('');
-$('#arr').innerHTML='<tr><th>Player</th><th>Travel</th></tr>'+P.map(p=>`<tr><td>${p[1]}</td><td>${p[6]}<br><span class="mut">${p[7]}</span></td></tr>`).join('');
 P.forEach((p,i)=>$('#pick').add(new Option(p[0],i)));
 function myInfo(p){const tt=[];const s=p[1];
 for(const[k,v]of Object.entries(CR))if(v.split(', ').includes(s))tt.push(`Thu Cradle ${k}`);
 const ln=p[0].split(' ').pop(),fm=r=>r.find(x=>(x[1]+x[2]).match(new RegExp(p[1]=='Joe'?'Joe':p[1]=='Papa K'?'Kontak Sr':p[1]=='Mikie'?'Mikie':(p[1]=='Helin'?'A. Helin':p[1]=='Danny'?'D. Helin':ln))));
 const a=fm(F4),b=fm(F3);if(a)tt.push(`Fri No. 4 at ${a[0]} AM (${a[1]} vs ${a[2]})`);if(b)tt.push(`Fri No. 3 at ${b[0]} PM (${b[1]} vs ${b[2]})`);
-if(['Bender','Bokeno','Kili','Cam'].includes(s))tt.unshift('Thu No. 2 at 10:00 AM');tt.push('Sat No. 10 between 10:24 and 11:00 AM (drawn Fri night)','Sun No. 1 between 8:56 and 9:20 AM');return tt}
-$('#pick').onchange=e=>{const p=P[e.target.value];if(!p){$('#me').innerHTML='';return}localStorage.me=e.target.value;$('#me').innerHTML=`<p><span class="tag ${p[2].toLowerCase()}">Team ${p[2]}</span> HCP ${p[3]} · Flight ${p[4]}</p><p><b>Roommate:</b> ${p[5]}</p><p><b>Travel:</b> ${p[6]}</p><b>Your tee times:</b><ul>${myInfo(p).map(x=>'<li>'+x+'</li>').join('')}</ul>`};
+if(s=='Will')tt.unshift('Thu: not in a Cradle group (joins Friday morning)');if(['Bender','Bokeno','Kili','Cam'].includes(s))tt.unshift('Thu No. 2 at 10:00 AM');tt.push('Sat No. 10 between 10:24 and 11:00 AM (drawn Fri night)','Sun No. 1 between 8:56 and 9:20 AM');return tt}
+$('#pick').onchange=e=>{const p=P[e.target.value];if(!p){$('#me').innerHTML='';return}localStorage.me=e.target.value;$('#me').innerHTML=`<p><span class="tag ${p[2].toLowerCase()}">Team ${p[2]}</span> HCP ${p[3]} · Flight ${p[4]}</p><p><b>Roommate:</b> ${p[5]}</p><b>Your tee times:</b><ul>${myInfo(p).map(x=>'<li>'+x+'</li>').join('')}</ul>`};
 if(localStorage.me){$('#pick').value=localStorage.me;$('#pick').onchange({target:$('#pick')})}
 // checklist
-const CK=["$250 cash for bets (plus caddie tip cash)","Photo ID and credit card for check-in","Single-strap carry bag under 24 lb","Clubs, balls (extra for No. 2!), tees, markers, divot tool","Glove(s), rain gear, layers (Oct mornings are 45–55°F)","Golf shoes and soft spikes","Team US / Team EU colors 🇺🇸🇪🇺","Collared shirts (resort dress code at dinner)","Sunscreen, hat, sunglasses","Phone charger and portable battery","GHIN app updated","Advil and the hangover kit","Flight home booked for after 6 PM Sun (golf ends about 1:30 PM)"];
+const CK=["$250 cash for bets (plus caddie tip cash)","Photo ID and credit card for check-in","Single-strap carry bag under 24 lb","Clubs, balls (extra for No. 2!), tees, markers, divot tool","Glove(s), rain gear, layers (Oct mornings are 45–55°F)","Golf shoes and soft spikes","Team US / Team EU colors 🇺🇸🇪🇺","Collared shirts (resort dress code at dinner)","Sunscreen, hat, sunglasses","Phone charger and portable battery","GHIN app updated","Advil and the hangover kit"];
 const st=JSON.parse(localStorage.ck||'{}');$('#chk').innerHTML=CK.map((c,i)=>`<label><input type="checkbox" data-i="${i}" ${st[i]?'checked':''}>${c}</label>`).join('');
 $('#chk').onchange=e=>{st[e.target.dataset.i]=e.target.checked;localStorage.ck=JSON.stringify(st)};
 // AMA
 const KB=[
 [["cash","money","bring","bet","pot","250","owe","pay boerger"],"Bring <b>$250 cash</b> for bets. Give it to Boerger/Bokeno <b>Thursday before the Cradle</b>. Bring extra cash for caddie tips (Sat No. 10). The resort itself is cashless."],
 [["bets","breakdown","skins","payout","hio","hole in one","insurance"],"Bet split: Thu skins $20 · Fri best ball $40 · Fri alt shot $40 · Sat singles $60 · Sun Chicago $60 · winning team $20 · HIO insurance $10 (raffled if no ace) = $250."],
-[["thursday","thu","cradle","first","arrive day","day 1"],"<b>Thursday 10/22:</b> No. 2 at 10:00 AM (Bender, Bokeno, Kili, Cam) · check-in at 4 PM · <b>The Cradle 4:00/4:10/4:20/4:30</b> · dinner at Carolina Vista Lounge 7 PM."],
+[["thursday","thu","cradle","first","day 1"],"<b>Thursday 10/22:</b> No. 2 at 10:00 AM (Bender, Bokeno, Kili, Cam) · check-in at 4 PM · <b>The Cradle 4:00/4:10/4:20/4:30</b> · dinner at Carolina Vista Lounge 7 PM."],
 [["friday","fri","no 4","number 4","best ball","four ball","fourball","no 3","alt","alternate"],"<b>Friday 10/23:</b> No. 4 Best Ball 8:20–8:50 AM, then No. 3 Modified Alt Shot 2:00–2:24 PM. Dinner at The Deuce 8:30 PM, then the singles draw."],
 [["saturday","sat","singles","no 10","number 10"],"<b>Saturday 10/24:</b> No. 10 Singles with caddies, tee times <b>10:24, 10:36, 10:48, 11:00 AM</b> (2 matches each). Pairings are drawn Fri night. +$125 premium. Dinner at The Homestead 7:30 PM."],
-[["sunday","sun","chicago","no 1","number 1","last day","checkout day"],"<b>Sunday 10/25:</b> No. 1 Chicago Points, <b>8:56–9:20 AM</b>. Checkout is 11 AM, so pack and stash your bags before golf. Book flights for about 6 PM or later."],
+[["sunday","sun","chicago","no 1","number 1","last day","checkout day"],"<b>Sunday 10/25:</b> No. 1 Chicago Points, <b>8:56–9:20 AM</b>. Checkout is 11 AM, so pack and stash your bags before golf."],
 [["hotel","stay","manor","address","where","lodging"],"<b>The Manor</b>, 5 Community Road, Pinehurst, NC 28374 (next to Pinehurst Brewery). Manor Rooms, 2 per room."],
 [["check in","checkin","check out","checkout","what time check"],"Check-in is <b>Thu 4:00 PM</b> (bring a photo ID and credit card). Checkout is <b>Sun 11:00 AM</b>."],
 [["cost","price","how much","total","deposit","fee","tax","balance","owe resort"],"$2,760 package + ~$170.25 tax + $276 resort fee ≈ <b>$3,206</b>. The $300 deposit is already paid, so the balance is about <b>$2,906</b>. Plus No. 10 premium $125 (No. 2 group +$250)."],
@@ -153,8 +151,7 @@ const KB=[
 [["format","rules","how does","scoring","points game","quota"],"Ryder Cup US vs EU: Thu Cradle (skins), Fri AM No. 4 Best Ball, Fri PM No. 3 Modified Alt Shot (40% handicap difference), Sat No. 10 Singles. Sun No. 1 is Chicago Points (bogey 1, par 2, birdie 4, eagle 8 vs your quota)."],
 [["caddie","caddy","tip"],"Caddies are booked for <b>No. 10 Saturday</b> (and the No. 2 group Thursday). Bring cash to tip. Use a single-strap bag under 24 lb."],
 [["tees","white","blue","yardage"],"White tees on No. 4, No. 3 and No. 10. Blue tees on No. 1 Sunday."],
-[["will","fidler"],"Will Fidler arrives <b>Friday</b>. He rooms with Mikie and plays Team EU."],
-[["shuttle","rdu","airport","fly","flight","clt","drive","carpool"],"Most of the group flies into CLT on Wednesday. Joe's carpool: Joe, Boerger, Bokeno, Jim. Bokeno has a rental van. The resort runs an RDU shuttle: 910-235-8465."],
+[["will","fidler"],"Will Fidler (Team EU, rooms with Mikie) joins <b>Friday morning</b> and plays the full schedule: Fri No. 4 Best Ball 8:30 AM, Fri No. 3 Alt Shot 2:16 PM, Sat No. 10 Singles and Sun No. 1 Chicago. He's not in a Thursday Cradle group."],
 [["confirmation","reservation number","r16f0e","phone","contact","call"],"Group confirmation: <b>R16F0E</b>. Resort reservations: 855-235-8507. For anything else, text Joe."],
 [["handicap","ghin","index","flight"],"GHINs are as of 10/13. Pick your name on the Players tab to see yours and your flight."],
 [["weather","pack","wear","bring stuff"],"Expect mid-to-upper 40s in the morning and 70s in the afternoon. Bring layers and rain gear. See the Checklist tab."],
@@ -163,11 +160,14 @@ const norm=s=>s.toLowerCase().replace(/no\.?\s*#?|#|number\s*/g,'no ').replace(/
 function lev(a,b){const d=Array.from({length:a.length+1},(_,i)=>[i]);for(let j=1;j<=b.length;j++)d[0][j]=j;for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]==b[j-1]?0:1));return d[a.length][b.length]}
 function who(q){const me=localStorage.me!=null&&localStorage.me!==''?P[localStorage.me]:null;for(const p of P){const ks=[p[1].toLowerCase(),p[0].split(' ')[0].toLowerCase(),p[0].split(' ').pop().toLowerCase()];if(ks.some(k=>k.length>2&&q.split(' ').includes(k))&&!/\b(my|i)\b/.test(q))return p}return me}
 function answer(raw){const q=' '+norm(raw)+' ',w=q.trim().split(' ');
+if(/\b(carpool|ride|rides|arriv\w*|airport|fly|flying|flights?|shuttle|rdu|clt|travel\w*|depart\w*|drive|driving|land|landing)\b/.test(q)&&!/\b(will|fidler)\b/.test(q)&&!/(what|which) flight (am|is|are)|flight am i/.test(q))return FB;
 if(/room|roommate|sleep|bunk/.test(q)){const p=who(q);return p?`${p[0]} rooms with <b>${p[5]}</b> (per the resort confirmation).`:'Pick your name on the <b>Players & Rooms</b> tab (or ask "who is Bender rooming with"). All pairs are listed there.'}
 if(/(tee|tee time|i play|my time|when do i)/.test(q)){const p=who(q);if(p){let t=myInfo(p);const day=['thu','fri','sat','sun'].find(d=>q.includes(' '+d));if(day)t=t.filter(x=>x.toLowerCase().startsWith(day));if(t.length)return `<b>${p[1]}</b>: `+t.join(' · ')}}
 if(/team|which side/.test(q)&&/\b(my|i|am)\b|is /.test(q)){const p=who(q);if(p)return `${p[1]} is on <b>Team ${p[2]}</b> (HCP ${p[3]}).`}
+if(/\bfidler\b|\bwill (arrive|arriving|play|playing|get|be|join)\b|\b(is|does|did|for|about) will\b/.test(q))return KB.find(k=>k[0][0]=='will')[1];
 let best=null,bs=0;for(const[k,a]of KB){let s=0;for(const kw of k){if(q.includes(' '+kw+' ')||(kw.includes(' ')&&q.includes(kw)))s+=kw.length>3?3:2;else if(!kw.includes(' ')&&kw.length>4&&w.some(x=>x.length>3&&lev(x,kw)<=1))s+=2}if(s>bs){bs=s;best=a}}
-return bs>=2?best:"I don't have that one. Try a chip below, or <b>text Joe</b>. He's the source of truth."}
+return bs>=2?best:FB}
+const FB="I don't have that one. Try a chip below, or <b>text Joe</b>. He's the source of truth.";
 function say(t,c){const d=document.createElement('div');d.className='msg '+c;d.innerHTML=t;$('#chat').appendChild(d);$('#chat').scrollTop=1e6}
 say("Hey! Ask me anything about the trip: tee times, rooms, cash, dinners. Tip: pick your name on the Players tab and I'll personalize answers.","bot");
 ["What time do I tee off Saturday?","Who is my roommate?","How much cash do I bring?","When is check-in?","What's included in the package?","Where's dinner Friday?","What's the format?","Which team am I on?"].forEach(c=>{const b=document.createElement('button');b.textContent=c;b.onclick=()=>{say(c,'me');say(answer(c),'bot')};$('#chips').appendChild(b)});
