@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>SoPi Sprint #7 · Player Hub</title><meta http-equiv="Cache-Control" content="no-cache"><meta name="hub-version" content="2026-10-19c"><meta name="theme-color" content="#123b2a">
+<title>SoPi Sprint #7 · Player Hub</title><meta http-equiv="Cache-Control" content="no-cache"><meta name="hub-version" content="2026-10-19d"><meta name="theme-color" content="#123b2a">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--g:#123b2a;--g2:#1d5a40;--gold:#c9a24a;--cream:#f7f3e8;--ink:#1c2620;--mut:#5f6b63}
@@ -75,7 +75,7 @@ select{padding:8px;border-radius:10px;font-size:15px;width:100%}a{color:var(--g2
 <div class="card"><h3>Your cost (per person)</h3><table><tr><td>Package</td><td>$2,760.00</td></tr><tr><td>Tax (est., can change)</td><td>$170.25</td></tr><tr><td>Resort fee</td><td>$276.00</td></tr><tr><th>Total</th><th>$3,206.25</th></tr><tr><td>Deposit paid (applied at check-in)</td><td>−$300</td></tr><tr><th>Est. balance</th><th>≈$2,906</th></tr></table>
 <p class="mut">Plus pro shop premiums: <b>No. 2 +$250</b> (Thu No. 2 group only) and <b>No. 10 +$125</b> (everyone, Sat). Caddie fees and tips, bar tabs and the $250 bet pot are extra.</p></div></section>
 
-<section id="pack" data-t="Checklist"><h2>Packing & Checklist</h2><div class="card chk" id="chk"></div><p class="mut">Your checks are saved on this phone.</p><p class="mut" style="text-align:center">Hub version 2026-10-19c</p></section>
+<section id="pack" data-t="Checklist"><h2>Packing & Checklist</h2><div class="card chk" id="chk"></div><p class="mut">Your checks are saved on this phone.</p><p class="mut" style="text-align:center">Hub version 2026-10-19d</p></section>
 
 <section id="ask" data-t="Ask 🤖"><h2>Ask the Caddie</h2>
 <div class="card"><div id="chat"></div><div class="chips" id="chips"></div><form class="ask" id="af"><input id="q" placeholder="e.g. What time do I tee off Saturday?" autocomplete="off"><button>Ask</button></form></div></section>
@@ -183,7 +183,7 @@ function renderProfiles_(){$('#yr').innerHTML=Object.keys(PROFILES).map(y=>`<but
 const Y=PROFILES[YR];$('#pnote').textContent=Y.label+(Y.note?' · '+Y.note:'');
 if(!Y.list.length){$('#plist').innerHTML='<div class="card" style="text-align:center"><h3>Coming soon ⛳</h3><p>The 2026 profiles are still being written. Send your best dirt on your playing partners to Joe.</p></div>';return}
 const teams=[...new Set(Y.list.map(x=>x.team))];
-$('#plist').innerHTML=teams.map(tm=>`<h3 style="margin:14px 0 6px"><span class="tag ${tm.toLowerCase()}">Team ${tm}</span> <span class="mut">(${YR})</span></h3>`+Y.list.filter(x=>x.team==tm).map(x=>`<div class="card pc" id="pf-${YR}-${x.keys[0].replace(/ /g,'-')}"><h3>${x.name} <span class="mut">[${x.hcp}]</span> ${x.alumni?'<span class="tag gd">Alumni</span>':''}</h3>${x.bio.map(b=>'<p>'+b+'</p>').join('')}${x.player!=null?`<button class="lk" onclick="openPlayer(${x.player})">→ 2026 player card</button>`:'<span class="mut">Not on the 2026 roster</span>'}</div>`).join('')).join('')}
+$('#plist').innerHTML=teams.map(tm=>`<h3 style="margin:14px 0 6px"><span class="tag ${tm.toLowerCase()}">Team ${tm}</span> <span class="mut">(${YR})</span></h3>`+Y.list.filter(x=>x.team==tm).slice().sort((p,q)=>(p.hcp-q.hcp)||p.name.replace(/\s*\(.*$|\s*·.*$/,'').split(' ').pop().localeCompare(q.name.replace(/\s*\(.*$|\s*·.*$/,'').split(' ').pop())||p.name.localeCompare(q.name)).map(x=>`<div class="card pc" id="pf-${YR}-${x.keys[0].replace(/ /g,'-')}"><h3>${x.name} <span class="mut">[${x.hcp}]</span> ${x.alumni?'<span class="tag gd">Alumni</span>':''}</h3>${x.bio.map(b=>'<p>'+b+'</p>').join('')}${x.player!=null?`<button class="lk" onclick="openPlayer(${x.player})">→ 2026 player card</button>`:'<span class="mut">Not on the 2026 roster</span>'}</div>`).join('')).join('')}
 function openPlayer(i){$('#pick').value=i;$('#pick').onchange({target:$('#pick')});show('players')}
 function profileOf(i){for(const y of Object.keys(PROFILES).reverse()){const x=PROFILES[y].list.find(z=>z.player==i);if(x)return[y,x]}return null}
 renderProfiles();
