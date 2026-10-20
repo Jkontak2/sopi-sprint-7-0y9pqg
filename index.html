@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>SoPi Sprint #7 · Player Hub</title><meta http-equiv="Cache-Control" content="no-cache"><meta name="hub-version" content="2026-10-19d"><meta name="theme-color" content="#123b2a">
+<title>SoPi Sprint #7 · Player Hub</title><meta http-equiv="Cache-Control" content="no-cache"><meta name="hub-version" content="2026-10-20a"><meta name="theme-color" content="#123b2a">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--g:#123b2a;--g2:#1d5a40;--gold:#c9a24a;--cream:#f7f3e8;--ink:#1c2620;--mut:#5f6b63}
@@ -55,6 +55,8 @@ select{padding:8px;border-radius:10px;font-size:15px;width:100%}a{color:var(--g2
 
 <section id="profiles" data-t="Profiles"><h2>Player Profiles</h2>
 <div class="yr" id="yr"></div><p class="mut" id="pnote"></p><div id="plist"></div></section>
+<section id="ask" data-t="Ask 🤖"><h2>Ask the Caddie</h2>
+<div class="card"><div id="chat"></div><div class="chips" id="chips"></div><form class="ask" id="af"><input id="q" placeholder="e.g. What time do I tee off Saturday?" autocomplete="off"><button>Ask</button></form></div></section>
 <section id="format" data-t="Format & Bets"><h2>Format & Bets</h2>
 <div class="card"><h3>Ryder Cup: Team US 🇺🇸 vs Team EU 🇪🇺</h3><ul>
 <li><b>Thu: The Cradle</b> (9-hole par 3), skins, kicks things off</li>
@@ -75,10 +77,8 @@ select{padding:8px;border-radius:10px;font-size:15px;width:100%}a{color:var(--g2
 <div class="card"><h3>Your cost (per person)</h3><table><tr><td>Package</td><td>$2,760.00</td></tr><tr><td>Tax (est., can change)</td><td>$170.25</td></tr><tr><td>Resort fee</td><td>$276.00</td></tr><tr><th>Total</th><th>$3,206.25</th></tr><tr><td>Deposit paid (applied at check-in)</td><td>−$300</td></tr><tr><th>Est. balance</th><th>≈$2,906</th></tr></table>
 <p class="mut">Plus pro shop premiums: <b>No. 2 +$250</b> (Thu No. 2 group only) and <b>No. 10 +$125</b> (everyone, Sat). Caddie fees and tips, bar tabs and the $250 bet pot are extra.</p></div></section>
 
-<section id="pack" data-t="Checklist"><h2>Packing & Checklist</h2><div class="card chk" id="chk"></div><p class="mut">Your checks are saved on this phone.</p><p class="mut" style="text-align:center">Hub version 2026-10-19d</p></section>
+<section id="pack" data-t="Checklist"><h2>Packing & Checklist</h2><div class="card chk" id="chk"></div><p class="mut">Your checks are saved on this phone.</p><p class="mut" style="text-align:center">Hub version 2026-10-20a</p></section>
 
-<section id="ask" data-t="Ask 🤖"><h2>Ask the Caddie</h2>
-<div class="card"><div id="chat"></div><div class="chips" id="chips"></div><form class="ask" id="af"><input id="q" placeholder="e.g. What time do I tee off Saturday?" autocomplete="off"><button>Ask</button></form></div></section>
 </main>
 <script>
 const P=[ // name, short, team, ghin, flight, roommate
@@ -104,7 +104,7 @@ const F3=[["2:00","Kilianski + Bender","Joe + Slavik"],["2:08","D. Helin + A. He
 const S=[
 {d:"Thu 10/22",t:"Check-in + The Cradle",date:"2026-10-22",items:[["10:00 AM","Pinehurst No. 2 (optional, with caddies, +$250): Bender, Bokeno, Kili, Cam"],["Before 4 PM","Give $250 cash to Boerger/Bokeno. Thistle Dhu putt-offs."],["4:00 PM","Check-in opens at The Manor"],["4:00–4:30 PM","The Cradle (skins, $20). Groups 4:00 / 4:10 / 4:20 / 4:30"],["7:00 PM","Dinner: Carolina Vista Lounge"]]},
 {d:"Fri 10/23",t:"Ryder Cup Day 1",date:"2026-10-23",items:[["Breakfast","Manor Market"],["8:20–8:50 AM","No. 4: Four-Ball / Best Ball (White tees, $40)"],["2:00–2:24 PM","No. 3: Modified Alternate Shot (White tees, $40)"],["8:30 PM","Dinner: The Deuce @ No. 2. Singles draw afterward."],["Morning","Will Fidler joins and plays the full Ryder Cup schedule from No. 4 on"]]},
-{d:"Sat 10/24",t:"Ryder Cup Singles",date:"2026-10-24",items:[["6–9:30 AM","Breakfast: Station 21 @ No. 10"],["10:24–11:00 AM","No. 10: Singles + CTPs (White tees, caddies, +$125, $60)"],["7:30 PM","Dinner: The Homestead (reservation under Zach). Sheet also lists Pinehurst Brewery."]]},
+{d:"Sat 10/24",t:"Ryder Cup Singles",date:"2026-10-24",items:[["6–9:30 AM","Breakfast: Station 21 @ No. 10"],["10:24–11:00 AM","No. 10: Singles + CTPs (White tees, caddies, +$125, $60)"],["Evening","Dinner: Pinehurst Brewery"]]},
 {d:"Sun 10/25",t:"Chicago + Checkout",date:"2026-10-25",items:[["Breakfast","Manor Market (check out by 11 AM; plan bags before golf)"],["8:56–9:20 AM","No. 1: Chicago Points + CTPs/skins (Blue tees, $60)"],["11:00 AM","Checkout"]]}];
 const tees={"2026-10-22T16:00":"The Cradle","2026-10-23T08:20":"No. 4 Best Ball","2026-10-23T14:00":"No. 3 Alt Shot","2026-10-24T10:24":"No. 10 Singles","2026-10-25T08:56":"No. 1 Chicago"};
 const $=s=>document.querySelector(s);
@@ -144,13 +144,13 @@ const KB=[
 [["bets","breakdown","skins","payout","hio","hole in one","insurance"],"Bet split: Thu skins $20 · Fri best ball $40 · Fri alt shot $40 · Sat singles $60 · Sun Chicago $60 · winning team $20 · HIO insurance $10 (raffled if no ace) = $250."],
 [["thursday","thu","cradle","first","day 1"],"<b>Thursday 10/22:</b> No. 2 at 10:00 AM (Bender, Bokeno, Kili, Cam) · check-in at 4 PM · <b>The Cradle 4:00/4:10/4:20/4:30</b> · dinner at Carolina Vista Lounge 7 PM."],
 [["friday","fri","no 4","number 4","best ball","four ball","fourball","no 3","alt","alternate"],"<b>Friday 10/23:</b> No. 4 Best Ball 8:20–8:50 AM, then No. 3 Modified Alt Shot 2:00–2:24 PM. Dinner at The Deuce 8:30 PM, then the singles draw."],
-[["saturday","sat","singles","no 10","number 10"],"<b>Saturday 10/24:</b> No. 10 Singles with caddies, tee times <b>10:24, 10:36, 10:48, 11:00 AM</b> (2 matches each). Pairings are drawn Fri night. +$125 premium. Dinner at The Homestead 7:30 PM."],
+[["saturday","sat","singles","no 10","number 10"],"<b>Saturday 10/24:</b> No. 10 Singles with caddies, tee times <b>10:24, 10:36, 10:48, 11:00 AM</b> (2 matches each). Pairings are drawn Fri night. +$125 premium. Dinner at Pinehurst Brewery."],
 [["sunday","sun","chicago","no 1","number 1","last day","checkout day"],"<b>Sunday 10/25:</b> No. 1 Chicago Points, <b>8:56–9:20 AM</b>. Checkout is 11 AM, so pack and stash your bags before golf."],
 [["hotel","stay","manor","address","where","lodging"],"<b>The Manor</b>, 5 Community Road, Pinehurst, NC 28374 (next to Pinehurst Brewery). Manor Rooms, 2 per room."],
 [["check in","checkin","check out","checkout","what time check"],"Check-in is <b>Thu 4:00 PM</b> (bring a photo ID and credit card). Checkout is <b>Sun 11:00 AM</b>."],
 [["cost","price","how much","total","deposit","fee","tax","balance","owe resort"],"$2,760 package + ~$170.25 tax + $276 resort fee ≈ <b>$3,206</b>. The $300 deposit is already paid, so the balance is about <b>$2,906</b>. Plus No. 10 premium $125 (No. 2 group +$250)."],
 [["include","package","map","breakfast","meals","food","dinner included"],"MAP/Donald Ross package: room, <b>breakfast and dinner daily</b>, 1 round per day with cart, practice facilities and club storage."],
-[["dinner","eat","restaurant","deuce","homestead","brewery","lounge"],"Dinners: Thu Carolina Vista Lounge 7 PM · Fri The Deuce 8:30 PM · Sat The Homestead 7:30 PM (under Zach). Sat breakfast is Station 21 @ No. 10."],
+[["dinner","eat","restaurant","deuce","brewery","lounge"],"Dinners: Thu Carolina Vista Lounge 7 PM · Fri The Deuce 8:30 PM · Sat Pinehurst Brewery. Sat breakfast is Station 21 @ No. 10."],
 [["team","us","eu","europe","america","ryder"],"Team EU: Zach, Helin, Bokeno, Danny, Kili, Bender, Will, Greg. Team US: Joe, Mikie, Papa K, Slav, Anderson, Underwood, Jim, Cam."],
 [["format","rules","how does","scoring","points game","quota"],"Ryder Cup US vs EU: Thu Cradle (skins), Fri AM No. 4 Best Ball, Fri PM No. 3 Modified Alt Shot (40% handicap difference), Sat No. 10 Singles. Sun No. 1 is Chicago Points (bogey 1, par 2, birdie 4, eagle 8 vs your quota)."],
 [["caddie","caddy","tip"],"Caddies are booked for <b>No. 10 Saturday</b> (and the No. 2 group Thursday). Bring cash to tip. Use a single-strap bag under 24 lb."],
