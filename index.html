@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>SoPi Sprint #7 · Player Hub</title><meta http-equiv="Cache-Control" content="no-cache"><meta name="hub-version" content="2026-10-22b"><meta name="theme-color" content="#123b2a">
+<title>SoPi Sprint #7 · Player Hub</title><meta http-equiv="Cache-Control" content="no-cache"><meta name="hub-version" content="2026-10-22c"><meta name="theme-color" content="#123b2a">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--g:#123b2a;--g2:#1d5a40;--gold:#c9a24a;--cream:#f7f3e8;--ink:#1c2620;--mut:#5f6b63}
@@ -83,7 +83,7 @@ select{padding:8px;border-radius:10px;font-size:15px;width:100%}a{color:var(--g2
 <div class="card"><h3>Your cost (per person)</h3><table><tr><td>Package</td><td>$2,760.00</td></tr><tr><td>Tax (est., can change)</td><td>$170.25</td></tr><tr><td>Resort fee</td><td>$276.00</td></tr><tr><th>Total</th><th>$3,206.25</th></tr><tr><td>Deposit paid (applied at check-in)</td><td>−$300</td></tr><tr><th>Est. balance</th><th>≈$2,906</th></tr></table>
 <p class="mut">Plus pro shop premiums: <b>No. 2 +$250</b> (Thu No. 2 group only) and <b>No. 10 +$125</b> (everyone, Sat). Caddie fees and tips, bar tabs and the $250 bet pot are extra.</p></div></section>
 
-<section id="pack" data-t="Checklist"><h2>Packing & Checklist</h2><div class="card chk" id="chk"></div><p class="mut">Your checks are saved on this phone.</p><p class="mut" style="text-align:center">Hub version 2026-10-22b</p></section>
+<section id="pack" data-t="Checklist"><h2>Packing & Checklist</h2><div class="card chk" id="chk"></div><p class="mut">Your checks are saved on this phone.</p><p class="mut" style="text-align:center">Hub version 2026-10-22c</p></section>
 
 </main><div id="pcard" hidden role="dialog" aria-modal="true" aria-label="Player stats"><div class="sh"><button id="pcx" type="button" aria-label="Close player card">×</button><div id="pcbody"></div></div></div>
 <script>
@@ -109,7 +109,7 @@ function canon(n){n=String(n).replace(/\s*·.*$/,'').replace(/^Cameron /,'Cam ')
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
 function pn(name,label){const n=canon(name);return `<button type="button" class="pn" data-p="${esc(n)}">${label==null?esc(name):label}</button>`}
 function pside(str){return str.split(' + ').map(t=>pn(TOK[t.toLowerCase()]||t,esc(t))).join(' + ')}
-const CR={"4:00 PM":"Zach, Helin, Bokeno, Kili","4:10 PM":"Papa K, Slav, Danny, Joe","4:20 PM":"Cam, Anderson, Mikie, Jim","4:30 PM":"Underwood, Greg, Bender"};
+const CR={"4:00 PM":"Zach, Helin, Bokeno, Kili","4:10 PM":"Papa K, Anderson, Mikie, Joe","4:20 PM":"Cam, Slav, Danny, Jim","4:30 PM":"Underwood, Greg, Bender"};
 const F4=[["8:20","Bokeno + Bender","Underwood + Weimer"],["8:30","D. Helin + Fidler","Kontak Sr + Slavik"],["8:40","Cunningham + Kilianski","Piascik + Bales"],["8:50","Boerger + A. Helin","Joe + Mikie"]];
 const F3=[["2:00","Kilianski + Bender","Joe + Slavik"],["2:08","D. Helin + A. Helin","Kontak Sr + Underwood"],["2:16","Fidler + Cunningham","Piascik + Weimer"],["2:24","Boerger + Bokeno","Bales + Mikie"]];
 const S=[
